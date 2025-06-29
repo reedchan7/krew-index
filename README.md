@@ -16,6 +16,17 @@ This is a custom plugin index for [Krew (kubectl plugin manager)](https://krew.s
 kubectl krew index add reedchan7 https://github.com/reedchan7/krew-index.git
 ```
 
+### Listing indexes
+
+To see what indexes you have added run the index list command:
+
+```bash
+kubectl krew index list
+INDEX      URL
+default    https://github.com/kubernetes-sigs/krew-index.git
+reedchan7  https://github.com/reedchan7/krew-index.git
+```
+
 ### Install plugins
 
 ```bash
@@ -42,6 +53,12 @@ kubectl krew upgrade reedchan7/image
 
 ```bash
 kubectl krew index remove reedchan7
+```
+
+### Get information about a plugin from the custom index:
+
+```bash
+kubectl krew info reedchan7/PLUGIN_NAME
 ```
 
 ## Supported Platforms
