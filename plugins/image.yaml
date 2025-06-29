@@ -1,0 +1,66 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: image
+spec:
+  version: "v0.4.0"
+  homepage: https://github.com/reedchan7/kubectl-image
+  shortDescription: "Manage container images in Kubernetes resources"
+  description: |
+    A simple, fast, and safe kubectl plugin to manage container images in your Kubernetes resources.
+
+    Features:
+    - Get Images: Quickly retrieve the image of a deployment or pod
+    - Set Images: Update the image of a deployment safely
+    - Tag-focused: Get/set just the image tag with --tag flag
+    - Wait for completion: Use --wait to monitor rollout progress
+
+    Examples:
+    kubectl image get deployment my-app
+    kubectl image set deployment my-app busybox:1.36 --wait
+    kubectl image set deployment my-app --tag 1.36.1
+  caveats: |
+    This plugin requires kubectl to be installed and configured to access your cluster.
+  platforms:
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: amd64
+    uri: https://github.com/reedchan7/kubectl-image/releases/download/v0.4.0/kubectl-image_darwin_amd64.tar.gz
+    sha256: "9800e5c2b7c07d45f1e1c1db6182de8d69c38a2287b802e084d39094c6bb2a3d"
+    bin: kubectl-image
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: arm64
+    uri: https://github.com/reedchan7/kubectl-image/releases/download/v0.4.0/kubectl-image_darwin_arm64.tar.gz
+    sha256: "2991383ba55cd899e75be8e7863cfc156a8f59114787cebe041d70c365b41075"
+    bin: kubectl-image
+  - selector:
+      matchLabels:
+        os: linux
+        arch: amd64
+    uri: https://github.com/reedchan7/kubectl-image/releases/download/v0.4.0/kubectl-image_linux_amd64.tar.gz
+    sha256: "4314376f8b3489c27366ac280b9ff243014d0a0d1d0ba90ecaf217c79f168d92"
+    bin: kubectl-image
+  - selector:
+      matchLabels:
+        os: linux
+        arch: arm64
+    uri: https://github.com/reedchan7/kubectl-image/releases/download/v0.4.0/kubectl-image_linux_arm64.tar.gz
+    sha256: "5387ae4c9b72778b383e0b44c6604b8010a32640bdbe98dd2b3fdce3327ff66b"
+    bin: kubectl-image
+  - selector:
+      matchLabels:
+        os: windows
+        arch: amd64
+    uri: https://github.com/reedchan7/kubectl-image/releases/download/v0.4.0/kubectl-image_windows_amd64.zip
+    sha256: "542cf4698bf1ecb7aadf96b8af814c563ab0fc922d1d4364c277b2892c097ab7"
+    bin: kubectl-image.exe
+  - selector:
+      matchLabels:
+        os: windows
+        arch: arm64
+    uri: https://github.com/reedchan7/kubectl-image/releases/download/v0.4.0/kubectl-image_windows_arm64.zip
+    sha256: "e6a711d2b6972415bd53e1bed4be6ef0e801d4835d757a8068701840fa49d74a"
+    bin: kubectl-image.exe
